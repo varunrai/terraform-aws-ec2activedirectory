@@ -39,7 +39,7 @@ variable "ad_service_account_pwd" {
   sensitive   = true
 }
 
-variable "ad_admistrators_group" {
+variable "ad_administrators_group" {
   description = "Active Directory new administrators group"
   type        = string
   default     = "FS Administrators Group"
