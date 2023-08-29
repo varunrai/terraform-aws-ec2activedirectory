@@ -1,21 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "5.14.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = var.aws_location
-  default_tags {
-    tags = {
-      "creator" = var.creator_tag
-    }
-  }
-}
-
 
 locals {
   server_name = "${var.creator_tag}-${var.ec2_instance_name}-ad"
