@@ -27,7 +27,7 @@ resource "aws_instance" "ec2-ad" {
   <powershell>
 $Domain = "${var.ad_domain}"
 $DN = "DC=" + $Domain.Replace(".",",DC=")
-$ssmPass = (Get-SSMParameterValue -Name /ad/password/serviceacc -WithDecryption 1).Parameters.Value 
+$ssmPass = (Get-SSMParameterValue -Name ${var.ssm_password_key} -WithDecryption 1).Parameters.Value 
 $Pass = ConvertTo-SecureString "$($ssmPass)" -AsPlainText -Force 
 $InstanceId = Get-EC2InstanceMetadata -Category InstanceId 
 $Tags = Get-EC2Tag -Filter @{Name="resource-type";Values="instance"},@{Name="resource-id";Values=$InstanceId}

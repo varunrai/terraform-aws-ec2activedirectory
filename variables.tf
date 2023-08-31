@@ -64,3 +64,9 @@ variable "creator_tag" {
   description = "Tag with the Key as Creator"
   type        = string
 }
+
+variable "ssm_password_key" {
+  description = "Password Variable Key"
+  type        = string
+  default     = "/ad/password/serviceacc"
+}
